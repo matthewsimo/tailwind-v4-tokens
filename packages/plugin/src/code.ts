@@ -1,4 +1,4 @@
-import { getFigmaData, init } from "./common/app";
+import { createTailwindCollection, getFigmaData, init } from "./common/app";
 import { PostMessage } from "./common/msg";
 // Figma Documentation Links:
 // https://www.figma.com/plugin-docs/how-plugins-run
@@ -20,6 +20,9 @@ figma.ui.onmessage = async (msg: PostMessage) => {
   switch (msg.type) {
     case "refreshFigmaData":
       await getFigmaData();
+      break;
+    case "createTokens":
+      createTailwindCollection();
       break;
     case "log": // Demonstrate UI passing data to code.ts
       console.log("payload:");

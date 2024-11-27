@@ -1,3 +1,4 @@
+import { breakpoints, fontWeights, radii, trackings, Var } from "../lib/vars";
 import { verbose } from "./logging";
 import { postToUI } from "./msg";
 
@@ -48,4 +49,26 @@ export const getFigmaData = () => {
   };
   verbose && console.log("getFigmaData:", payload);
   postToUI(payload);
+};
+
+const createVars = (vars: Var[], collection: VariableCollection): void => {
+  for (const item of vars) {
+    const v = figma.variables.createVariable(
+      item.name,
+      collection,
+      item.resolvedType
+    );
+    v.description = item.description;
+    v.scopes = item.scopes;
+    v.setValueForMode(collection.defaultModeId, item.value);
+  }
+};
+
+export const createTailwindCollection = (): void => {
+  const twCollection = figma.variables.createVariableCollection("tailwind");
+
+  createVars(fontWeights, twCollection);
+  createVars(breakpoints, twCollection);
+  createVars(radii, twCollection);
+  createVars(trackings, twCollection);
 };

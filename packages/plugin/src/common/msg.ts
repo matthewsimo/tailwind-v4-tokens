@@ -5,6 +5,9 @@ export type PostMessage =
       type: "refreshFigmaData";
     }
   | {
+      type: "createTokens";
+    }
+  | {
       type: "log";
       payload: {
         count: number;

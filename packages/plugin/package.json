@@ -26,7 +26,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@figma/plugin-typings": "^1.81.0",
+    "@figma/plugin-typings": "^1.103.0",
     "@types/node": "^20.10.3",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

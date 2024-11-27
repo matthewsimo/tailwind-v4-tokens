@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { UIPostMessage } from "./common/msg";
+import { postToFigma, UIPostMessage } from "./common/msg";
 import { useAppState, useDispatch, useFigmaData } from "./hooks/appContext";
 import { LogData, LogElement } from "./components/logger";
 import { Button } from "@/ui/components/button";
@@ -42,12 +42,16 @@ function App() {
     return () => window.removeEventListener("message", handleMessage);
   }, [handleMessage]);
 
+  const handleCreate = () => {
+    postToFigma({ type: "createTokens" });
+  };
+
   return (
     <LogElement>
       <main className="space-y-4 p-4">
         <h1>Figma Plugin Template</h1>
         <div>Add UI</div>
-        <Button>Click me</Button>
+        <Button onClick={handleCreate}>Click me</Button>
         <div>
           <LogData data={data} />
         </div>
