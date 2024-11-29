@@ -5,7 +5,7 @@ import { PostMessage } from "./common/msg";
 // https://www.figma.com/plugin-docs/api/api-reference/
 
 figma.showUI(__html__, { themeColors: true });
-figma.ui.resize(500, 800);
+figma.ui.resize(500, 400);
 
 (async () => {
   await init();

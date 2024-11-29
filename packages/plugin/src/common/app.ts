@@ -1,4 +1,12 @@
-import { breakpoints, fontWeights, radii, trackings, Var } from "../lib/vars";
+import {
+  breakpoints,
+  fontWeights,
+  leadings,
+  radii,
+  redScale,
+  trackings,
+  Var,
+} from "../lib/vars";
 import { verbose } from "./logging";
 import { postToUI } from "./msg";
 
@@ -17,7 +25,7 @@ export const getStoredSettings = async (): Promise<PluginSettings> => {
 };
 
 export const setStoredSettings = async (
-  data: Omit<PluginSettings, "lastUpdated">
+  data: Omit<PluginSettings, "lastUpdated">,
 ) => {
   verbose && console.log("store", { settings, data });
   figma.clientStorage
@@ -56,7 +64,7 @@ const createVars = (vars: Var[], collection: VariableCollection): void => {
     const v = figma.variables.createVariable(
       item.name,
       collection,
-      item.resolvedType
+      item.resolvedType,
     );
     v.description = item.description;
     v.scopes = item.scopes;
@@ -71,4 +79,7 @@ export const createTailwindCollection = (): void => {
   createVars(breakpoints, twCollection);
   createVars(radii, twCollection);
   createVars(trackings, twCollection);
+  createVars(leadings, twCollection);
+
+  createVars(redScale, twCollection);
 };
