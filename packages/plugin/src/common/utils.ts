@@ -1,3 +1,3 @@
-/**
- * Put the utils you need to build your plugin here
- */
+export const waitFor = (num: number): Promise<unknown> => {
+  return new Promise((resolve) => setTimeout(resolve, num));
+};

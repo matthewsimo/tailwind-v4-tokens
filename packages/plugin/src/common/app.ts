@@ -1,9 +1,9 @@
+import { colors } from "../lib/vars/colors";
 import {
   breakpoints,
   fontWeights,
   leadings,
   radii,
-  redScale,
   trackings,
   Var,
 } from "../lib/vars";
@@ -80,6 +80,5 @@ export const createTailwindCollection = (): void => {
   createVars(radii, twCollection);
   createVars(trackings, twCollection);
   createVars(leadings, twCollection);
-
-  createVars(redScale, twCollection);
+  createVars(colors, twCollection);
 };

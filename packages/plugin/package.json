@@ -13,12 +13,15 @@
     "build:code": "bunx --bun tsc && bunx --bun vite build --config=vite.config.code.ts",
     "------": "",
     "lint": "bunx --bun eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "bunx --bun vite preview"
+    "preview": "bunx --bun vite preview",
+    "-------": "",
+    "prep:colors": "bun run ./prepare-colors.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "culori": "^4.0.1",
     "lucide-react": "^0.378.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,6 +30,8 @@
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.103.0",
+    "@types/bun": "^1.1.14",
+    "@types/culori": "^2.1.1",
     "@types/node": "^20.10.3",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
